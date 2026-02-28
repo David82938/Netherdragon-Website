@@ -202,8 +202,18 @@ h3 {
 }
 @media (max-width: 600px) {
     /* On small screens show only logo+title and the menu toggle */
+    .title {
+        margin: 0;
+        font-size: 1.2em;
+    }
     .logo {
         max-width: 50px;
+        max-height: 50px;
+    }
+    h1 {
+        font-size: 1.5em;
+        margin-top: 15px;
+        margin-bottom: 10px;
     }
     .server-info {
         display: none;
