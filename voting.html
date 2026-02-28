@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netherdragon Network</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+    <header>
+        <img src="netherdragon.png" alt="Netherdragon Network Logo" class="logo" style="width:100px;height:100px;">
+        <span class="title">Netherdragon Network</span>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="docs.html">Docs</a>
+            <a href="voting.html" class="current-page">Voting</a>
+            <a href="support.html">Support</a>
+            <a href="news.html">News</a>
+            <a href="http://status.netherdragon.net">Status</a>
+        </nav>
+        <div class="server-info">
+            <span class="ip">
+                Server IP: <u id="click-event">play.netherdragon.net</u>
+            </span>
+            <span id="server-status" class="status">Checking status...</span>
+        </div>
+    </header>
+    <footer>
+        <p id="legal-notice">
+            Legal Notice
+            <br>
+            Netherdragon Network is an independent Minecraft server and is <strong>not affiliated, endorsed, or sponsored by Mojang Studios or Microsoft</strong>.
+            <br>
+            All server content, including events, builds, and media, is created and owned by the Netherdragon Network team. Unauthorized copying or use of assets is prohibited.
+            <br>
+            Payments for ranks, items, or other digital goods are handled securely through trusted payment processors. Netherdragon Network is not responsible for any issues arising from third-party payment systems.
+            <br>
+            Players participate on the server at their own risk. Netherdragon Network is not liable for any loss of items, account issues, or technical problems that may occur while connecting to the server.
+            <br>
+            By joining the server or using the website, you agree to follow our server rules and terms of use.
+            <br>
+            <br>
+            &copy; <span id="year"></span> Netherdragon Network
+            <br>
+            <a href="Imprint.txt">Imprint</a> | <a href="Privacy_Policy.txt">Privacy Policy</a> | <a href="Terms_of_Service.txt">Terms of Service</a>
+        </p>
+    </footer>
+    <script>
+        document.getElementById('year').innerText = new Date().getFullYear();
+        document.getElementById("click-event").onclick = function() {
+            navigator.clipboard.writeText("play.netherdragon.net").then(function() {
+                document.getElementById("click-event").innerText = "Copied to clipboard!";
+                setTimeout(function() {
+                    document.getElementById("click-event").innerText = "play.netherdragon.net";
+                }, 1000);
+            });
+        };
+        const statusEl = document.getElementById("server-status");
+        function updateStatus() {
+            fetch("https://api.mcsrvstat.us/2/play.netherdragon.net")
+                .then(res => res.json())
+                .then(data => {
+                    if (data.online) {
+                        if (data.players.online == 0) {
+                            statusEl.innerText = "Online";
+                        } else {
+                            statusEl.innerText =
+                                `Online — ${data.players.online}/${data.players.max} players`;
+                        }
+                        statusEl.style.color = "lightgreen";
+                    } else {
+                        statusEl.innerText = "Offline";
+                        statusEl.style.color = "red";
+                    }
+                })
+                .catch(() => {
+                    statusEl.innerText = "⚠ Status unavailable";
+                });
+        }
+        updateStatus();
+        setInterval(updateStatus, 15000);
+    </script>
+</body>

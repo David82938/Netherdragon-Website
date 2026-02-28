@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netherdragon Network</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+    <header>
+        <img src="netherdragon.png" alt="Netherdragon Network Logo" class="logo" style="width:100px;height:100px;">
+        <span class="title">Netherdragon Network</span>
+        <nav>
+            <a href="index.html" class="current-page">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="docs.html">Docs</a>
+            <a href="voting.html">Voting</a>
+            <a href="support.html">Support</a>
+            <a href="news.html">News</a>
+            <a href="http://status.netherdragon.net">Status</a>
+        </nav>
+        <div class="server-info">
+            <span class="ip">
+                Server IP: <u id="click-event">play.netherdragon.net</u>
+            </span>
+            <span id="server-status" class="status">Checking status...</span>
+        </div>
+    </header>
+    <div class="content">
+        <h1>Welcome to Netherdragon Network</h1>
+        <p>A small modern Minecraft SMP with custom events, long-term worlds and a friendly community.</p>
+        <p>Survival • Creative • Hardcore • PvP Arenas</p>
+        <p>Join now: play.netherdragon.net</p>
+        <p style="color: deepskyblue;">The Netherdragon Network is currently in beta. We would really appreciate any support, as a builder or developer. If you want to help the Server, contact the owner on discord and get a free rank!</p>
+        <h1>What makes us different from other servers</h1>
+        <ul>
+            <li><strong>Regular story-driven events</strong><br>Large-scale community events with lore and exciting rewards</li>
+            <li><strong>Long-term worlds</strong><br>No random resets - progress actually matters</li>
+            <li><strong>Fair gameplay</strong><br>No pay-to-win or overpowered kits</li>
+            <li><strong>Player-focused community</strong><br>Active moderation, real player feedback, transparent decisions</li>
+        </ul>
+        <h1>Features</h1>
+        <h2>Survival World</h2>
+        <p>Gather resources, survive against other players and explore a vast world with custom biomes and unique structures</p>
+        <h2>Creative World</h2>
+        <p>Unleash your creativity in a sandbox environment with unlimited resources and building tools</p>
+        <h2>Hardcore World</h2>
+        <p>Experience the chaos of Hardcore Anarchy where there are no rules and you only have one life</p>
+        <h2>PvP Arenas</h2>
+        <p>Test your combat skills against other players in dedicated PvP arenas and climb the leaderboard to prove you're the best</p>
+        <h1>How to join</h1>
+        <h2>Minecraft Java Edition</h2>
+        <ol start="1">
+            <li>Open Minecraft and select "Multiplayer"</li>
+            <li>Click "Add Server"</li>
+            <li>Enter the server IP: play.netherdragon.net</li>
+            <li>Click "Done"</li>
+            <li>Select "Netherdragon Network" from your server list and click "Join Server"</li>
+        </ol>
+        <h2>Minecraft Bedrock Edition</h2>
+        <ol start="1">
+            <li>Open Minecraft and select "Play"</li>
+            <li>Go to the "Servers" tab</li>
+            <li>Scroll down and click "Add Server"</li>
+            <li>Enter the server name: Netherdragon Network</li>
+            <li>Enter the server IP: play.netherdragon.net</li>
+            <li>Enter the server Port: 19132</li>
+            <li>Click "Save"</li>
+            <li>Select "Netherdragon Network" from your server list and click "Join Server"</li>
+        </ol>
+        <h1>Our Community</h1>
+        <img src="discord-icon.webp" alt="Discord Logo" class="discord-icon">
+        <span class="community-link">Join our Discord</span>
+        <br>
+        <img src="youtube-icon.png" alt="YouTube Logo" class="youtube-icon">
+        <span class="community-link">Subscribe to our YouTube Channel</span>
+        <br>
+        <img src="twitch-icon.png" alt="Twitch Logo" class="twitch-icon">
+        <span class="community-link">Follow us on Twitch</span>
+        <br>
+        <img src="twitter-icon.png" alt="Twitter Logo" class="twitter-icon">
+        <span class="community-link">Follow us on Twitter</span>
+        <br>
+        <img src="tiktok-icon.png" alt="TikTok Logo" class="tiktok-icon">
+        <span class="community-link">Follow us on TikTok</span>
+        <br>
+        <img src="instagram-icon.png" alt="Instagram Logo" class="instagram-icon">
+        <span class="community-link">Follow us on Instagram</span>
+        <br>
+    </div>
+    <footer>
+        <p id="legal-notice">
+            Legal Notice
+            <br>
+            Netherdragon Network is an independent Minecraft server and is <strong>not affiliated, endorsed, or sponsored by Mojang Studios or Microsoft</strong>.
+            <br>
+            All server content, including events, builds, and media, is created and owned by the Netherdragon Network team. Unauthorized copying or use of assets is prohibited.
+            <br>
+            Payments for ranks, items, or other digital goods are handled securely through trusted payment processors. Netherdragon Network is not responsible for any issues arising from third-party payment systems.
+            <br>
+            Players participate on the server at their own risk. Netherdragon Network is not liable for any loss of items, account issues, or technical problems that may occur while connecting to the server.
+            <br>
+            By joining the server or using the website, you agree to follow our server rules and terms of use.
+            <br>
+            <br>
+            &copy; <span id="year"></span> Netherdragon Network
+            <br>
+            <a href="Imprint.txt">Imprint</a> | <a href="Privacy_Policy.txt">Privacy Policy</a> | <a href="Terms_of_Service.txt">Terms of Service</a>
+        </p>
+    </footer>
+    <script>
+        document.getElementById('year').innerText = new Date().getFullYear();
+        document.getElementById("click-event").onclick = function() {
+            navigator.clipboard.writeText("play.netherdragon.net").then(function() {
+                document.getElementById("click-event").innerText = "Copied to clipboard!";
+                setTimeout(function() {
+                    document.getElementById("click-event").innerText = "play.netherdragon.net";
+                }, 1000);
+            });
+        };
+        const statusEl = document.getElementById("server-status");
+        function updateStatus() {
+            fetch("https://api.mcsrvstat.us/2/play.netherdragon.net")
+                .then(res => res.json())
+                .then(data => {
+                    if (data.online) {
+                        if (data.players.online == 0) {
+                            statusEl.innerText = "Online";
+                        } else {
+                            statusEl.innerText =
+                                `Online — ${data.players.online}/${data.players.max} players`;
+                        }
+                        statusEl.style.color = "lightgreen";
+                    } else {
+                        statusEl.innerText = "Offline";
+                        statusEl.style.color = "red";
+                    }
+                })
+                .catch(() => {
+                    statusEl.innerText = "⚠ Status unavailable";
+                });
+        }
+        updateStatus();
+        setInterval(updateStatus, 15000);
+    </script>
+</body>

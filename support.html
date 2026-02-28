@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netherdragon Network</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+    <header>
+        <img src="netherdragon.png" alt="Netherdragon Network Logo" class="logo" style="width:100px;height:100px;">
+        <span class="title">Netherdragon Network</span>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="docs.html">Docs</a>
+            <a href="voting.html">Voting</a>
+            <a href="support.html" class="current-page">Support</a>
+            <a href="news.html">News</a>
+            <a href="http://status.netherdragon.net">Status</a>
+        </nav>
+        <div class="server-info">
+            <span class="ip">
+                Server IP: <u id="click-event">play.netherdragon.net</u>
+            </span>
+            <span id="server-status" class="status">Checking status...</span>
+        </div>
+    </header>
+    <h1>Support</h1>
+    <p>
+    Need help? Found a bug? Have a question about the server?
+    This page shows you the fastest way to get support on Netherdragon Network.
+    </p>
+    <h2>Get Support on Discord</h2>
+    <p>
+    Our Discord server is the main place for support, questions, and announcements.
+    Most issues can be solved there quickly by staff or the community.
+    </p>
+    <ul>
+        <li>Ask questions</li>
+        <li>Report bugs</li>
+        <li>Appeal punishments</li>
+        <li>Suggest features</li>
+    </ul>
+    <p><a href="http://discord.netherdragon.net" target="_blank">
+    Join our Discord Server
+    </a></p>
+    <h2>Please do NOT contact support for</h2>
+    <ul>
+        <li>Asking for free items or ranks</li>
+        <li>Complaints about losing PvP fights</li>
+        <li>Issues caused by client-side mods</li>
+        <li>Reports without proof</li>
+    </ul>
+    <h2>Common Issues</h2>
+    <h3>I can’t join the server</h3>
+    <ul>
+        <li>Make sure you are using the correct Minecraft version</li>
+        <li>Check that your account is not banned</li>
+        <li>Try restarting Minecraft</li>
+    </ul>
+    <h3>I lost items</h3>
+    <p>
+    Item refunds are not guaranteed. Always provide screenshots or video proof.
+    </p>
+    <h3>The server is lagging</h3>
+    <p>
+    Short lag spikes can happen during events or restarts.
+    Persistent lag should be reported on Discord.
+    </p>
+    <h2>Punishment Appeals</h2>
+    <p>
+    If you believe you were punished unfairly, you may appeal on Discord.
+    </p>
+    <ul>
+        <li>Be honest</li>
+        <li>Explain what happened clearly</li>
+        <li>Do not lie or use alternate accounts</li>
+    </ul>
+    <p>
+    Appeals are reviewed by staff. Decisions are final.
+    </p>
+    <footer>
+        <p id="legal-notice">
+            Legal Notice
+            <br>
+            Netherdragon Network is an independent Minecraft server and is <strong>not affiliated, endorsed, or sponsored by Mojang Studios or Microsoft</strong>.
+            <br>
+            All server content, including events, builds, and media, is created and owned by the Netherdragon Network team. Unauthorized copying or use of assets is prohibited.
+            <br>
+            Payments for ranks, items, or other digital goods are handled securely through trusted payment processors. Netherdragon Network is not responsible for any issues arising from third-party payment systems.
+            <br>
+            Players participate on the server at their own risk. Netherdragon Network is not liable for any loss of items, account issues, or technical problems that may occur while connecting to the server.
+            <br>
+            By joining the server or using the website, you agree to follow our server rules and terms of use.
+            <br>
+            <br>
+            &copy; <span id="year"></span> Netherdragon Network
+            <br>
+            <a href="Imprint.txt">Imprint</a> | <a href="Privacy_Policy.txt">Privacy Policy</a> | <a href="Terms_of_Service.txt">Terms of Service</a>
+        </p>
+    </footer>
+    <script>
+        document.getElementById('year').innerText = new Date().getFullYear();
+        document.getElementById("click-event").onclick = function() {
+            navigator.clipboard.writeText("play.netherdragon.net").then(function() {
+                document.getElementById("click-event").innerText = "Copied to clipboard!";
+                setTimeout(function() {
+                    document.getElementById("click-event").innerText = "play.netherdragon.net";
+                }, 1000);
+            });
+        };
+        const statusEl = document.getElementById("server-status");
+        function updateStatus() {
+            fetch("https://api.mcsrvstat.us/2/play.netherdragon.net")
+                .then(res => res.json())
+                .then(data => {
+                    if (data.online) {
+                        if (data.players.online == 0) {
+                            statusEl.innerText = "Online";
+                        } else {
+                            statusEl.innerText =
+                                `Online — ${data.players.online}/${data.players.max} players`;
+                        }
+                        statusEl.style.color = "lightgreen";
+                    } else {
+                        statusEl.innerText = "Offline";
+                        statusEl.style.color = "red";
+                    }
+                })
+                .catch(() => {
+                    statusEl.innerText = "⚠ Status unavailable";
+                });
+        }
+        updateStatus();
+        setInterval(updateStatus, 15000);
+    </script>
+</body>

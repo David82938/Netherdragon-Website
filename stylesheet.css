@@ -1,0 +1,131 @@
+@font-face {
+    font-family: Minecraft;
+    src: url(Minecraft.ttf);
+}
+body {
+    font-family: Minecraft, Arial, Helvetica, sans-serif;
+    text-align: center;
+    background-color: #100000;
+}
+header, footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #250000;
+    padding: 20px;
+    box-shadow: #780e00 0px 4px 8px;
+}
+.title {
+    margin-left: 15px;
+    margin-right: 25px;
+    font-size:2em;
+    color:#ff3300;
+}
+.ip {
+    margin-left: 30px;
+    font-size:1.5em;
+    color:#ffdd01;
+}
+.status {
+    margin-left: 30px;
+    font-size:1.5em;
+    color:#ffffff;
+}
+.server-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+    align-items: flex-start;
+}
+#click-event {
+    cursor: pointer;
+}
+a {
+    color: #ffffff;
+    background-color: #ff3300;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-left: 15px;
+    transition: ease-in-out 0.5s;
+}
+footer a {
+    text-decoration: underline;
+    color: #ff3300;
+    padding: auto;
+    background-color: transparent;
+    border-radius: 0;
+    transition: ease-in-out 0.2s;
+    margin: 0;
+    padding: 0;
+}
+a:hover {
+    background-color: #ff9602;
+    text-decoration: underline;
+    transition: ease-in-out 0.5s;
+}
+footer a:hover {
+    background-color: transparent;
+    color: #ff9602;
+    transition: ease-in-out 0.2s;
+}
+.current-page {
+    background-color: #ff9602;
+    pointer-events: none;
+}
+h1 {
+    color: #e1d4d4;
+    font-size: 2.5em;
+    margin-top: 55px;
+    margin-bottom: 20px;
+}
+h2 {
+    color: #ae8383;
+    font-size: 2em;
+    margin-bottom: 25px;
+}
+p {
+    color: #ffffff;
+    font-size: 1.5em;
+    margin-bottom: 35px;
+}
+footer p {
+    color: #888888;
+    font-size: 0.5em;
+    margin-bottom: 10px;
+}
+ul, ol {
+    color: #ffffff;
+    font-size: 1.5em;
+    margin-bottom: 35px;
+    text-align: left;
+    display: inline-block;
+}
+li {
+    margin-bottom: 15px;
+}
+.community-link {
+    margin-left: 20px;
+    font-size: 1.5em;
+    color: #ffffff;
+}
+.discord-icon, .tiktok-icon, .twitch-icon, .instagram-icon {
+    width:50px;
+    height:50px;
+    vertical-align:middle;
+}
+.youtube-icon {
+    width:75px;
+    height:50px;
+    vertical-align:middle;
+}
+.twitter-icon {
+    width:60px;
+    height:50px;
+    vertical-align:middle;
+}
+h3 {
+    color: #ce7b7b;
+    font-size: 1.7em;
+    margin-bottom: 20px;
+}
