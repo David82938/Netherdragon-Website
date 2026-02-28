@@ -7,7 +7,16 @@ body {
     text-align: center;
     background-color: #100000;
 }
-header, footer {
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #250000;
+    padding: 20px;
+    box-shadow: #780e00 0px 4px 8px;
+    gap: 20px;
+}
+footer {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -34,8 +43,63 @@ header, footer {
 .server-info {
     display: flex;
     flex-direction: column;
-    margin-left: 40px;
-    align-items: flex-start;
+    margin-left: 20px;
+    align-items: center;
+}
+#menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: #ff3300;
+    font-size: 1.6em;
+    cursor: pointer;
+}
+
+/* Layout nav so it centers on wide screens */
+nav {
+    display: flex;
+    gap: 10px;
+    flex: 1 1 auto;
+    justify-content: center;
+    align-items: center;
+    /* enable transitions for responsive dropdown */
+    transition: max-height 300ms ease, opacity 300ms ease, transform 300ms ease;
+}
+
+/* Dropdown style when nav is shown on small screens */
+@media (max-width: 900px) {
+    nav {
+        /* switched from display:none to collapsible animated container */
+        position: absolute;
+        top: 80px;
+        right: 20px;
+        background-color: #250000;
+        padding: 12px;
+        border-radius: 8px;
+        flex-direction: column;
+        box-shadow: #780e00 0px 6px 12px;
+        z-index: 200;
+        min-width: 200px;
+
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(-8px);
+        pointer-events: none;
+    }
+    nav.open {
+        max-height: 600px; /* large enough for the menu items */
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+    nav a {
+        display: block;
+        margin: 8px 0;
+    }
+    #menu-toggle {
+        display: block;
+    }
 }
 #click-event {
     cursor: pointer;
@@ -128,4 +192,49 @@ h3 {
     color: #ce7b7b;
     font-size: 1.7em;
     margin-bottom: 20px;
+}
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+    min-height: 63vh;
+}
+@media (max-width: 600px) {
+    /* On small screens show only logo+title and the menu toggle */
+    .server-info {
+        display: none;
+    }
+    nav {
+        /* switched from display:none to collapsible animated container */
+        position: absolute;
+        top: 70px;
+        right: 10px;
+        left: 10px;
+        background-color: #250000;
+        padding: 12px;
+        border-radius: 8px;
+        flex-direction: column;
+        box-shadow: #780e00 0px 6px 12px;
+        z-index: 200;
+
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(-8px);
+        pointer-events: none;
+    }
+    nav.open {
+        max-height: 800px;
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+    nav a {
+        display: block;
+        margin: 8px 0;
+    }
+    #menu-toggle {
+        display: block;
+    }
 }

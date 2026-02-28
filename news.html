@@ -26,6 +26,7 @@
             </span>
             <span id="server-status" class="status">Checking status...</span>
         </div>
+        <button id="menu-toggle" aria-label="Open menu">☰</button>
     </header>
     <div class="content">
         <h1>News</h1>
@@ -86,5 +87,24 @@
         }
         updateStatus();
         setInterval(updateStatus, 15000);
+        // Menu toggle for tablet/mobile
+        (function(){
+            const menuToggle = document.getElementById('menu-toggle');
+            const nav = document.querySelector('header nav');
+            if (!menuToggle || !nav) return;
+            menuToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                nav.classList.toggle('open');
+            });
+            // Close nav when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!nav.classList.contains('open')) return;
+                if (!nav.contains(e.target) && e.target !== menuToggle) {
+                    nav.classList.remove('open');
+                }
+            });
+            // Close when a link is clicked
+            nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+        })();
     </script>
 </body>
