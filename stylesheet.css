@@ -172,21 +172,39 @@ li {
     margin-left: 20px;
     font-size: 1.5em;
     color: #ffffff;
+    display: inline-flex !important;
+    align-items: center;
+    gap: 8px;
+    vertical-align: middle;
+    white-space: nowrap; /* keep icon and label on same line */
+}
+/* make sure icons are inline and don't force line breaks */
+.community-link img,
+.community-link svg,
+.discord-icon, .tiktok-icon, .twitch-icon, .instagram-icon,
+.youtube-icon, .twitter-icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+    max-width: 100%;
+    height: auto;
+}
+/* ensure label inside link stays inline */
+.community-link span {
+    display: inline-block;
+    vertical-align: middle;
 }
 .discord-icon, .tiktok-icon, .twitch-icon, .instagram-icon {
     width:50px;
     height:50px;
-    vertical-align:middle;
 }
 .youtube-icon {
     width:75px;
     height:50px;
-    vertical-align:middle;
 }
 .twitter-icon {
     width:60px;
     height:50px;
-    vertical-align:middle;
 }
 h3 {
     color: #ce7b7b;
