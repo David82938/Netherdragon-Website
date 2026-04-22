@@ -168,43 +168,38 @@ ul, ol {
 li {
     margin-bottom: 15px;
 }
-.community-link {
-    margin-left: 20px;
+/* Container for each social row */
+.community-item {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* keeps everything centered like your layout */
+    gap: 12px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+/* Make the whole row behave nicely if you turn it into a link later */
+.community-item span {
     font-size: 1.5em;
     color: #ffffff;
-    display: inline-flex !important;
-    align-items: center;
-    gap: 8px;
-    vertical-align: middle;
-    white-space: nowrap; /* keep icon and label on same line */
+    white-space: nowrap; /* prevents text from wrapping */
 }
-/* make sure icons are inline and don't force line breaks */
-.community-link img,
-.community-link svg,
-.discord-icon, .tiktok-icon, .twitch-icon, .instagram-icon,
-.youtube-icon, .twitter-icon {
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 8px;
-    max-width: 100%;
+/* Icons */
+.community-item img {
+    display: block; /* removes inline spacing issues */
     height: auto;
 }
-/* ensure label inside link stays inline */
-.community-link span {
-    display: inline-block;
-    vertical-align: middle;
-}
+/* Individual icon sizes (reuse your original sizes) */
 .discord-icon, .tiktok-icon, .twitch-icon, .instagram-icon {
-    width:50px;
-    height:50px;
+    width: 50px;
+    height: 50px;
 }
 .youtube-icon {
-    width:75px;
-    height:50px;
+    width: 75px;
+    height: 50px;
 }
 .twitter-icon {
-    width:60px;
-    height:50px;
+    width: 60px;
+    height: 50px;
 }
 h3 {
     color: #ce7b7b;
@@ -245,21 +240,20 @@ h3 {
         font-size: 1em;
         margin-bottom: 20px;
     }
-    .community-link {
-        margin-left: 10px;
+    .community-item span {
         font-size: 1em;
     }
     .discord-icon, .tiktok-icon, .twitch-icon, .instagram-icon {
-        width:30px;
-        height:30px;
+        width: 30px;
+        height: 30px;
     }
     .youtube-icon {
-        width:45px;
-        height:30px;
+        width: 45px;
+        height: 30px;
     }
     .twitter-icon {
-        width:36px;
-        height:30px;
+        width: 36px;
+        height: 30px;
     }
     .server-info {
         display: none;
