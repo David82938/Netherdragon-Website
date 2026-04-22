@@ -19,10 +19,10 @@ function updateStatus() {
                     statusEl.innerText =
                         `Online — ${data.players.online}/${data.players.max} players`;
                 }
-                statusEl.style.color = "lightgreen";
+                statusEl.style.color = "#09b909";
             } else {
                 statusEl.innerText = "Offline";
-                statusEl.style.color = "red";
+                statusEl.style.color = "#FF0000";
             }
         })
         .catch(() => {
