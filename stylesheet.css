@@ -291,3 +291,27 @@ h3 {
         display: block;
     }
 }
+@media (prefers-color-scheme: light) {
+    body {
+        background-color: #ffffff;
+    }
+    header, footer {
+        background-color: #f0cbcb;
+        box-shadow: #ff2626 0px 4px 8px;
+    }
+    .title {
+        color: #7f0101;
+    }
+    .ip {
+        color: #ffa601;
+    }
+    .status {
+        color: #000000;
+    }
+    h1, h2, h3, p, ul, ol, .community-item span {
+        color: #000000;
+    }
+    footer p {
+        color: #555555;
+    }
+}
