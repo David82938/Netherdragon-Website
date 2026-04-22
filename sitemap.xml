@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://www.netherdragon.net/</loc>
+  <lastmod>2026-04-22T18:49:23+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://www.netherdragon.net/shop</loc>
+  <lastmod>2026-04-22T18:15:13+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.netherdragon.net/docs</loc>
+  <lastmod>2026-04-22T18:15:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.netherdragon.net/voting</loc>
+  <lastmod>2026-04-22T18:15:13+00:00</lastmod>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://www.netherdragon.net/support</loc>
+  <lastmod>2026-04-22T18:15:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.netherdragon.net/news</loc>
+  <lastmod>2026-04-22T18:15:13+00:00</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://www.netherdragon.net/imprint</loc>
+  <lastmod>2026-04-22T14:36:11+00:00</lastmod>
+  <priority>0.10</priority>
+</url>
+<url>
+  <loc>https://www.netherdragon.net/privacy</loc>
+  <lastmod>2026-04-22T18:35:24+00:00</lastmod>
+  <priority>0.10</priority>
+</url>
+<url>
+  <loc>https://www.netherdragon.net/terms</loc>
+  <lastmod>2026-04-22T14:36:11+00:00</lastmod>
+  <priority>0.10</priority>
+</url>
+
+
+</urlset>
