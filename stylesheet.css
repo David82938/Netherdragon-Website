@@ -113,6 +113,18 @@ a {
     margin-left: 15px;
     transition: ease-in-out 0.5s;
 }
+.docs-link {
+    background-color: transparent;
+    color: #ff5e00;
+    padding: 0;
+    border-radius: 0;
+    transition: ease-in-out 0.2s;
+}
+.docs-link:hover {
+    background-color: transparent;
+    color: #ff9602;
+    transition: ease-in-out 0.2s;
+}
 footer a {
     text-decoration: underline;
     color: #ff3300;
