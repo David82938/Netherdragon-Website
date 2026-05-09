@@ -149,6 +149,25 @@ footer a:hover {
     background-color: #ff9602;
     pointer-events: none;
 }
+input {
+    font-family: Minecraft, Arial, Helvetica, sans-serif;
+    background-color: #250000;
+    color: #ff3300;
+    border: 2px solid #ff3300;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 1.4em;
+    margin-bottom: 35px;
+}
+input::placeholder {
+    color: #ff3300;
+    opacity: 0.7;
+}
+input:focus {
+    outline: none;
+    border-color: #ff9602;
+    box-shadow: 0 0 5px #ff9602;
+}
 h1 {
     color: #e1d4d4;
     font-size: 2.5em;
