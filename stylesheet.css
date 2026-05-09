@@ -1,12 +1,41 @@
+/* =========================================================
+   FONT IMPORT
+========================================================= */
 @font-face {
     font-family: Minecraft;
     src: url(Minecraft.ttf);
+
+    /* Missing but useful font settings */
+    font-display: swap;
 }
+
+/* =========================================================
+   GLOBAL / RESET
+========================================================= */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Improve text rendering */
 body {
     font-family: Minecraft, Arial, Helvetica, sans-serif;
     text-align: center;
     background-color: #000000;
+
+    margin: 0;
+    padding: 0;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
+
+/* =========================================================
+   HEADER / FOOTER
+========================================================= */
 header {
     display: flex;
     align-items: center;
@@ -15,7 +44,11 @@ header {
     padding: 20px;
     box-shadow: #780e00 0px 4px 8px;
     gap: 20px;
+
+    /* Needed for mobile dropdown positioning */
+    position: relative;
 }
+
 footer {
     display: flex;
     align-items: center;
@@ -24,28 +57,39 @@ footer {
     padding: 20px;
     box-shadow: #780e00 0px 4px 8px;
 }
+
+/* =========================================================
+   HEADER TEXT
+========================================================= */
 .title {
     margin-left: 15px;
     margin-right: 25px;
-    font-size:2em;
-    color:#ff3300;
+    font-size: 2em;
+    color: #ff3300;
 }
+
 .ip {
     margin-left: 30px;
-    font-size:1.5em;
-    color:#ffdd01;
+    font-size: 1.5em;
+    color: #ffdd01;
 }
+
 .status {
     margin-left: 30px;
-    font-size:1.5em;
-    color:#ffffff;
+    font-size: 1.5em;
+    color: #ffffff;
 }
+
 .server-info {
     display: flex;
     flex-direction: column;
     margin-left: 20px;
     align-items: center;
 }
+
+/* =========================================================
+   MOBILE MENU BUTTON
+========================================================= */
 #menu-toggle {
     display: none;
     background: transparent;
@@ -55,6 +99,10 @@ footer {
     cursor: pointer;
 }
 
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
 /* Layout nav so it centers on wide screens */
 nav {
     display: flex;
@@ -62,48 +110,17 @@ nav {
     flex: 1 1 auto;
     justify-content: center;
     align-items: center;
-    /* enable transitions for responsive dropdown */
-    transition: max-height 300ms ease, opacity 300ms ease, transform 300ms ease;
+
+    /* Enable transitions for responsive dropdown */
+    transition:
+        max-height 300ms ease,
+        opacity 300ms ease,
+        transform 300ms ease;
 }
 
-/* Dropdown style when nav is shown on small screens */
-@media (max-width: 900px) {
-    nav {
-        /* switched from display:none to collapsible animated container */
-        position: absolute;
-        top: 80px;
-        right: 20px;
-        background-color: #250000;
-        padding: 12px;
-        border-radius: 8px;
-        flex-direction: column;
-        box-shadow: #780e00 0px 6px 12px;
-        z-index: 200;
-        min-width: 200px;
-
-        max-height: 0;
-        overflow: hidden;
-        opacity: 0;
-        transform: translateY(-8px);
-        pointer-events: none;
-    }
-    nav.open {
-        max-height: 600px; /* large enough for the menu items */
-        opacity: 1;
-        transform: translateY(0);
-        pointer-events: auto;
-    }
-    nav a {
-        display: block;
-        margin: 8px 0;
-    }
-    #menu-toggle {
-        display: block;
-    }
-}
-#click-event {
-    cursor: pointer;
-}
+/* =========================================================
+   LINKS
+========================================================= */
 a {
     color: #ffffff;
     background-color: #ff3300;
@@ -113,6 +130,22 @@ a {
     margin-left: 15px;
     transition: ease-in-out 0.5s;
 }
+
+a:hover {
+    background-color: #ff9602;
+    text-decoration: underline;
+    transition: ease-in-out 0.5s;
+}
+
+/* Active/current page button */
+.current-page {
+    background-color: #ff9602;
+    pointer-events: none;
+}
+
+/* =========================================================
+   SPECIAL LINKS
+========================================================= */
 .docs-link {
     background-color: transparent;
     color: #ff5e00;
@@ -120,11 +153,13 @@ a {
     border-radius: 0;
     transition: ease-in-out 0.2s;
 }
+
 .docs-link:hover {
     background-color: transparent;
     color: #ff9602;
     transition: ease-in-out 0.2s;
 }
+
 footer a {
     text-decoration: underline;
     color: #ff3300;
@@ -135,20 +170,16 @@ footer a {
     margin: 0;
     padding: 0;
 }
-a:hover {
-    background-color: #ff9602;
-    text-decoration: underline;
-    transition: ease-in-out 0.5s;
-}
+
 footer a:hover {
     background-color: transparent;
     color: #ff9602;
     transition: ease-in-out 0.2s;
 }
-.current-page {
-    background-color: #ff9602;
-    pointer-events: none;
-}
+
+/* =========================================================
+   FORMS
+========================================================= */
 input {
     font-family: Minecraft, Arial, Helvetica, sans-serif;
     background-color: #250000;
@@ -159,291 +190,18 @@ input {
     font-size: 1.4em;
     margin-bottom: 35px;
 }
+
 input::placeholder {
     color: #ff3300;
     opacity: 0.7;
 }
+
 input:focus {
     outline: none;
     border-color: #ff9602;
     box-shadow: 0 0 5px #ff9602;
 }
-h1 {
-    color: #e1d4d4;
-    font-size: 2.5em;
-    margin-top: 55px;
-    margin-bottom: 20px;
-}
-h2 {
-    color: #ae8383;
-    font-size: 2em;
-    margin-bottom: 25px;
-}
-h3 {
-    color: #ce7b7b;
-    font-size: 1.7em;
-    margin-bottom: 20px;
-}
-h4 {
-    color: #c86161;
-    font-size: 1.5em;
-    margin-bottom: 15px;
-}
-p {
-    color: #ffffff;
-    font-size: 1.5em;
-    margin-bottom: 35px;
-}
-label {
-    color: #eeeeee;
-    font-size: 1.4em;
-    margin-bottom: 10px;
-}
-footer p {
-    color: #888888;
-    font-size: 0.5em;
-    margin-bottom: 10px;
-}
-ul, ol {
-    color: #ffffff;
-    font-size: 1.5em;
-    margin-bottom: 35px;
-    text-align: left;
-    display: inline-block;
-    list-style-type: square;
-}
-li {
-    margin-bottom: 15px;
-}
-/* Container for each social row */
-.community-item {
-    display: flex;
-    align-items: center;
-    justify-content: center; /* keeps everything centered like your layout */
-    gap: 12px;
-    margin-bottom: 15px;
-    text-align: left;
-}
-/* Make the whole row behave nicely if you turn it into a link later */
-.community-item span {
-    font-size: 1.5em;
-    color: #ffffff;
-    white-space: nowrap; /* prevents text from wrapping */
-}
-/* Icons */
-.community-item img {
-    display: block; /* removes inline spacing issues */
-    height: auto;
-}
-/* Individual icon sizes */
-.discord-icon, .tiktok-icon, .twitch-icon, .instagram-icon {
-    width: 50px;
-    height: 50px;
-}
-.youtube-icon {
-    width: 75px;
-    height: 50px;
-}
-.twitter-icon {
-    width: 60px;
-    height: 50px;
-}
-.content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 50px;
-    min-height: 63vh;
-}
-@media (max-width: 600px) {
-    /* On small screens show only logo+title and the menu toggle */
-    .title {
-        margin: 0;
-        font-size: 1.2em;
-    }
-    .logo {
-        max-width: 50px;
-        max-height: 50px;
-    }
-    h1 {
-        font-size: 1.5em;
-        margin-top: 15px;
-        margin-bottom: 10px;
-    }
-    h2 {
-        font-size: 1.2em;
-        margin-bottom: 15px;
-    }
-    h3 {
-        font-size: 1.0em;
-        margin-bottom: 10px;
-    }
-    h4 {
-        font-size: 0.8em;
-        margin-bottom: 7px;
-    }
-    p, ul, ol {
-        font-size: 1em;
-        margin-bottom: 20px;
-    }
-    .community-item span {
-        font-size: 1em;
-    }
-    .discord-icon, .tiktok-icon, .twitch-icon, .instagram-icon {
-        width: 30px;
-        height: 30px;
-    }
-    .youtube-icon {
-        width: 45px;
-        height: 30px;
-    }
-    .twitter-icon {
-        width: 36px;
-        height: 30px;
-    }
-    .server-info {
-        display: none;
-    }
-    nav {
-        /* switched from display:none to collapsible animated container */
-        position: absolute;
-        top: 70px;
-        right: 10px;
-        left: 10px;
-        background-color: #250000;
-        padding: 12px;
-        border-radius: 8px;
-        flex-direction: column;
-        box-shadow: #780e00 0px 6px 12px;
-        z-index: 200;
 
-        max-height: 0;
-        overflow: hidden;
-        opacity: 0;
-        transform: translateY(-8px);
-        pointer-events: none;
-    }
-    nav.open {
-        max-height: 800px;
-        opacity: 1;
-        transform: translateY(0);
-        pointer-events: auto;
-    }
-    nav a {
-        display: block;
-        margin: 8px 0;
-    }
-    #menu-toggle {
-        display: block;
-    }
-}
-@media (prefers-color-scheme: light) {
-    body {
-        background-color: #ffffff;
-    }
-    header, footer {
-        background-color: #ffe5e5;
-        box-shadow: #ff8b8b 0px 4px 8px;
-    }
-    .title {
-        color: #a30202;
-    }
-    .ip {
-        color: #ba410d;
-    }
-    .status {
-        color: #000000;
-    }
-    h1, h2, h3, h4 p, ul, ol, .community-item span {
-        color: #000000;
-    }
-    footer p {
-        color: #555555;
-    }
-}
-.rank {
-    font-weight: bold;
-}
-#rank-coal {
-    color: #3B3B3B;
-}
-#rank-iron {
-    color: #D8AF93;
-}
-#rank-copper {
-    color: #C46C44;
-}
-#rank-gold {
-    color: #F7D75C;
-}
-#rank-redstone {
-    color: #B02E26;
-}
-#rank-lapis {
-    color: #2E43B0;
-}
-#rank-emerald {
-    color: #2EB05A;
-}
-#rank-diamond {
-    color: #5AD9E8;
-}
-#rank-quartz {
-    color: #DADFDC;
-}
-#rank-nethergold {
-    color: #D7B73C;
-}
-#rank-netherite {
-    color: #41393A;
-}
-#rank-creator {
-    background-image: linear-gradient(to right, rgb(0, 234, 255), rgb(255, 0, 208));
-    color: transparent;
-    background-clip: text;
-}
-#rank-builder {
-    background-image: linear-gradient(to right, rgb(55, 0, 255), rgb(208, 0, 255));
-    color: transparent;
-    background-clip: text;
-}
-#rank-dev {
-    background-image: linear-gradient(to right, rgb(38, 255, 0), rgb(0, 255, 115));
-    color: transparent;
-    background-clip: text;
-}
-#rank-helper {
-    background-image: linear-gradient(to right, rgb(255, 144, 0), rgb(255, 216, 0));
-    color: transparent;
-    background-clip: text;
-}
-#rank-moderator {
-    background-image: linear-gradient(to right, rgb(255, 72, 0), rgb(255, 144, 0));
-    color: transparent;
-    background-clip: text;
-}
-#rank-admin {
-    background-image: linear-gradient(to right, rgb(255, 0, 0), rgb(255, 72, 0));
-    color: transparent;
-    background-clip: text;
-}
-#rank-owner {
-    background-image: linear-gradient(to right, rgb(67, 67, 67), rgb(132, 132, 132));
-    color: transparent;
-    background-clip: text;
-}
-.product {
-    background-color: #522323;
-    border-radius: 16px;
-    box-shadow: #ffb1a7 0px 4px 8px;
-    padding: 15px;
-    margin: 20px auto;
-    max-width: 50vw;
-}
-.product-price {
-    margin-top: -15px;
-    text-decoration: underline;
-}
 select {
     font-family: Minecraft, Arial, Helvetica, sans-serif;
     background-color: #250000;
@@ -453,4 +211,488 @@ select {
     padding: 10px 15px;
     font-size: 1.4em;
     margin-bottom: 35px;
+}
+
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
+h1 {
+    color: #e1d4d4;
+    font-size: 2.5em;
+    margin-top: 55px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #ae8383;
+    font-size: 2em;
+    margin-bottom: 25px;
+}
+
+h3 {
+    color: #ce7b7b;
+    font-size: 1.7em;
+    margin-bottom: 20px;
+}
+
+h4 {
+    color: #c86161;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+p {
+    color: #ffffff;
+    font-size: 1.5em;
+    margin-bottom: 35px;
+}
+
+label {
+    color: #eeeeee;
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+footer p {
+    color: #888888;
+    font-size: 0.5em;
+    margin-bottom: 10px;
+}
+
+/* =========================================================
+   LISTS
+========================================================= */
+ul,
+ol {
+    color: #ffffff;
+    font-size: 1.5em;
+    margin-bottom: 35px;
+    text-align: left;
+    display: inline-block;
+    list-style-type: square;
+}
+
+li {
+    margin-bottom: 15px;
+}
+
+/* =========================================================
+   GENERAL CONTENT LAYOUT
+========================================================= */
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+    min-height: 63vh;
+}
+
+/* Cursor helper */
+#click-event {
+    cursor: pointer;
+}
+
+/* =========================================================
+   COMMUNITY / SOCIAL ITEMS
+========================================================= */
+
+/* Container for each social row */
+.community-item {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* keeps everything centered like your layout */
+    gap: 12px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+/* Make the whole row behave nicely if you turn it into a link later */
+.community-item span {
+    font-size: 1.5em;
+    color: #ffffff;
+    white-space: nowrap; /* prevents text from wrapping */
+}
+
+/* Icons */
+.community-item img {
+    display: block; /* removes inline spacing issues */
+    height: auto;
+}
+
+/* =========================================================
+   SOCIAL ICON SIZES
+========================================================= */
+.discord-icon,
+.tiktok-icon,
+.twitch-icon,
+.instagram-icon {
+    width: 50px;
+    height: 50px;
+}
+
+.youtube-icon {
+    width: 75px;
+    height: 50px;
+}
+
+.twitter-icon {
+    width: 60px;
+    height: 50px;
+}
+
+/* =========================================================
+   RANK COLORS
+========================================================= */
+.rank {
+    font-weight: bold;
+}
+
+#rank-coal {
+    color: #3B3B3B;
+}
+
+#rank-iron {
+    color: #D8AF93;
+}
+
+#rank-copper {
+    color: #C46C44;
+}
+
+#rank-gold {
+    color: #F7D75C;
+}
+
+#rank-redstone {
+    color: #B02E26;
+}
+
+#rank-lapis {
+    color: #2E43B0;
+}
+
+#rank-emerald {
+    color: #2EB05A;
+}
+
+#rank-diamond {
+    color: #5AD9E8;
+}
+
+#rank-quartz {
+    color: #DADFDC;
+}
+
+#rank-nethergold {
+    color: #D7B73C;
+}
+
+#rank-netherite {
+    color: #41393A;
+}
+
+/* Gradient ranks */
+#rank-creator {
+    background-image: linear-gradient(to right, rgb(0, 234, 255), rgb(255, 0, 208));
+    color: transparent;
+    background-clip: text;
+
+    /* Safari compatibility */
+    -webkit-background-clip: text;
+}
+
+#rank-builder {
+    background-image: linear-gradient(to right, rgb(55, 0, 255), rgb(208, 0, 255));
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+#rank-dev {
+    background-image: linear-gradient(to right, rgb(38, 255, 0), rgb(0, 255, 115));
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+#rank-helper {
+    background-image: linear-gradient(to right, rgb(255, 144, 0), rgb(255, 216, 0));
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+#rank-moderator {
+    background-image: linear-gradient(to right, rgb(255, 72, 0), rgb(255, 144, 0));
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+#rank-admin {
+    background-image: linear-gradient(to right, rgb(255, 0, 0), rgb(255, 72, 0));
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+#rank-owner {
+    background-image: linear-gradient(to right, rgb(67, 67, 67), rgb(132, 132, 132));
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+/* =========================================================
+   PRODUCTS / STORE
+========================================================= */
+.product {
+    background-color: #522323;
+    border-radius: 16px;
+    box-shadow: #ffb1a7 0px 4px 8px;
+    padding: 15px;
+    margin: 20px auto;
+    max-width: 50vw;
+}
+
+.product-price {
+    margin-top: -15px;
+    text-decoration: underline;
+}
+
+/* =========================================================
+   TABLET / SMALL DESKTOP RESPONSIVE NAV
+========================================================= */
+@media (max-width: 900px) {
+
+    nav {
+        /* switched from display:none to collapsible animated container */
+        position: absolute;
+        top: 80px;
+        right: 20px;
+
+        background-color: #250000;
+        padding: 12px;
+        border-radius: 8px;
+
+        flex-direction: column;
+
+        box-shadow: #780e00 0px 6px 12px;
+        z-index: 200;
+        min-width: 200px;
+
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(-8px);
+        pointer-events: none;
+    }
+
+    nav.open {
+        max-height: 600px; /* large enough for the menu items */
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    nav a {
+        display: block;
+        margin: 8px 0;
+    }
+
+    #menu-toggle {
+        display: block;
+    }
+}
+
+/* =========================================================
+   MOBILE RESPONSIVE
+========================================================= */
+@media (max-width: 600px) {
+
+    /* On small screens show only logo+title and the menu toggle */
+    .title {
+        margin: 0;
+        font-size: 1.2em;
+    }
+
+    .logo {
+        max-width: 50px;
+        max-height: 50px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+
+    h2 {
+        font-size: 1.2em;
+        margin-bottom: 15px;
+    }
+
+    h3 {
+        font-size: 1em;
+        margin-bottom: 10px;
+    }
+
+    h4 {
+        font-size: 0.8em;
+        margin-bottom: 7px;
+    }
+
+    p,
+    ul,
+    ol {
+        font-size: 1em;
+        margin-bottom: 20px;
+    }
+
+    .community-item span {
+        font-size: 1em;
+    }
+
+    .discord-icon,
+    .tiktok-icon,
+    .twitch-icon,
+    .instagram-icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .youtube-icon {
+        width: 45px;
+        height: 30px;
+    }
+
+    .twitter-icon {
+        width: 36px;
+        height: 30px;
+    }
+
+    .server-info {
+        display: none;
+    }
+
+    nav {
+        /* switched from display:none to collapsible animated container */
+        position: absolute;
+        top: 70px;
+        right: 10px;
+        left: 10px;
+
+        background-color: #250000;
+        padding: 12px;
+        border-radius: 8px;
+
+        flex-direction: column;
+
+        box-shadow: #780e00 0px 6px 12px;
+        z-index: 200;
+
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(-8px);
+        pointer-events: none;
+    }
+
+    nav.open {
+        max-height: 800px;
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    nav a {
+        display: block;
+        margin: 8px 0;
+    }
+
+    #menu-toggle {
+        display: block;
+    }
+}
+
+/* =========================================================
+   LIGHT MODE
+========================================================= */
+@media (prefers-color-scheme: light) {
+
+    body {
+        background-color: #ffffff;
+    }
+
+    header,
+    footer {
+        background-color: #ffe5e5;
+        box-shadow: #ff8b8b 0px 4px 8px;
+    }
+
+    .title {
+        color: #a30202;
+    }
+
+    .ip {
+        color: #ba410d;
+    }
+
+    .status {
+        color: #000000;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    p,
+    ul,
+    ol,
+    .community-item span {
+        color: #000000;
+    }
+
+    footer p {
+        color: #555555;
+    }
+
+    /* Missing light-mode navigation improvements */
+    nav {
+        background-color: #ffe5e5;
+    }
+
+    a {
+        color: #ffffff;
+    }
+
+    input,
+    select {
+        background-color: #fff3f3;
+        color: #a30202;
+        border-color: #a30202;
+    }
+
+    input::placeholder {
+        color: #a30202;
+    }
+
+    .product {
+        background-color: #ffe9e9;
+        box-shadow: #ff8b8b 0px 4px 8px;
+    }
+}
+
+/* =========================================================
+   REDUCED MOTION ACCESSIBILITY
+========================================================= */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
 }
