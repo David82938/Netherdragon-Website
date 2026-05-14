@@ -693,7 +693,7 @@ li {
 
     header,
     footer {
-        background-color: #e3e3e3;
+        background-color: #e4e4e4;
         box-shadow: #949494 0px 4px 8px;
     }
 
@@ -726,7 +726,7 @@ li {
 
     /* Missing light-mode navigation improvements */
     nav {
-        background-color: #ffe5e5;
+        background-color: #e4e4e4;
     }
 
     a {
