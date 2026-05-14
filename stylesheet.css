@@ -87,6 +87,11 @@ footer {
     align-items: center;
 }
 
+.logo {
+    width: 100px;
+    height: 100px;
+}
+
 /* =========================================================
    MOBILE MENU BUTTON
 ========================================================= */
@@ -126,7 +131,6 @@ a {
     background-color: #ff3300;
     text-decoration: none;
     padding: 10px 20px;
-    border-radius: 5px;
     margin-left: 15px;
     transition: ease-in-out 0.5s;
 }
@@ -347,52 +351,52 @@ li {
     font-weight: bold;
 }
 
-#rank-coal {
+.rank-coal {
     color: #3B3B3B;
 }
 
-#rank-iron {
+.rank-iron {
     color: #D8AF93;
 }
 
-#rank-copper {
+.rank-copper {
     color: #C46C44;
 }
 
-#rank-gold {
+.rank-gold {
     color: #F7D75C;
 }
 
-#rank-redstone {
+.rank-redstone {
     color: #B02E26;
 }
 
-#rank-lapis {
+.rank-lapis {
     color: #2E43B0;
 }
 
-#rank-emerald {
+.rank-emerald {
     color: #2EB05A;
 }
 
-#rank-diamond {
+.rank-diamond {
     color: #5AD9E8;
 }
 
-#rank-quartz {
+.rank-quartz {
     color: #DADFDC;
 }
 
-#rank-nethergold {
+.rank-nethergold {
     color: #D7B73C;
 }
 
-#rank-netherite {
+.rank-netherite {
     color: #41393A;
 }
 
 /* Gradient ranks */
-#rank-creator {
+.rank-creator {
     background-image: linear-gradient(to right, rgb(0, 234, 255), rgb(255, 0, 208));
     color: transparent;
     background-clip: text;
@@ -401,42 +405,42 @@ li {
     -webkit-background-clip: text;
 }
 
-#rank-builder {
+.rank-builder {
     background-image: linear-gradient(to right, rgb(55, 0, 255), rgb(208, 0, 255));
     color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
 }
 
-#rank-dev {
+.rank-dev {
     background-image: linear-gradient(to right, rgb(38, 255, 0), rgb(0, 255, 115));
     color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
 }
 
-#rank-helper {
+.rank-helper {
     background-image: linear-gradient(to right, rgb(255, 144, 0), rgb(255, 216, 0));
     color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
 }
 
-#rank-moderator {
+.rank-moderator {
     background-image: linear-gradient(to right, rgb(255, 72, 0), rgb(255, 144, 0));
     color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
 }
 
-#rank-admin {
+.rank-admin {
     background-image: linear-gradient(to right, rgb(255, 0, 0), rgb(255, 72, 0));
     color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
 }
 
-#rank-owner {
+.rank-owner {
     background-image: linear-gradient(to right, rgb(67, 67, 67), rgb(132, 132, 132));
     color: transparent;
     background-clip: text;
@@ -447,23 +451,86 @@ li {
    PRODUCTS / STORE
 ========================================================= */
 .product {
-    background-color: #522323;
+    background-color: #0e0000;
     border-radius: 16px;
-    box-shadow: #ffb1a7 0px 4px 8px;
+    box-shadow: #580a00 0px 4px 8px;
     padding: 15px;
     margin: 20px auto;
     max-width: 50vw;
 }
 
+.product-description {
+    color: #ffe8e8;
+    font-size: 1.3em;
+}
+
 .product-price {
     margin-top: -15px;
-    text-decoration: underline;
+}
+
+.product-special {
+    background: linear-gradient(
+        90deg,
+        rgb(0, 162, 255),
+        rgb(255, 0, 85),
+        rgb(0, 162, 255)
+    );
+    background-size: 200% auto;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.4em;
+    margin-top: -10px;
+    margin-bottom: 15px;
+    animation: gradientMove 3s linear infinite;
+}
+
+@keyframes gradientMove {
+    from {
+        background-position: 0% center;
+    }
+    to {
+        background-position: 200% center;
+    }
+}
+
+.buy-button {
+    background-color: #ff3300;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.1s ease;
+    font-size: 1.8em;
+}
+.buy-button:hover {
+    background-color: #ff6302;
+    transform: scale(1.05);
+    transition: transform 0.1s ease;
+    text-decoration: none;
+}
+#redeem-button {
+    background-color: #ff3300;
+    color: #ffffff;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: inline-block;
+    transition: ease-in-out 0.1s;
+    font-size: 1.3em;
+}
+#redeem-button:hover {
+    background-color: #ff6302;
+    font-size: 1.5em;
+    transition: ease-in-out 0.1s;
+    text-decoration: none;
 }
 
 /* =========================================================
    TABLET / SMALL DESKTOP RESPONSIVE NAV
 ========================================================= */
-@media (max-width: 900px) {
+@media (max-width: 1200px) {
 
     nav {
         /* switched from display:none to collapsible animated container */
@@ -508,7 +575,7 @@ li {
 /* =========================================================
    MOBILE RESPONSIVE
 ========================================================= */
-@media (max-width: 600px) {
+@media (max-width: 800px) {
 
     /* On small screens show only logo+title and the menu toggle */
     .title {

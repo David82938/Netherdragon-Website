@@ -50,3 +50,48 @@ setInterval(updateStatus, 15000);
     // Close when a link is clicked
     nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
 })();
+// Update Shop product visibility based on filters
+document.getElementById('shop-filter').addEventListener('change', function() {
+    const filter = this.value;
+    document.querySelectorAll('.product').forEach(product => {
+        if (filter === 'all') {
+            product.style.display = '';
+        } else if (product.classList.contains(`filter-${filter}`)) {
+            product.style.display = '';
+        } else {
+            product.style.display = 'none';
+        }
+    });
+    if (document.querySelector('.filter-ranks:not([style*="display: none"])')) {
+        document.getElementById('ranks-title').style.display = '';
+    } else {
+        document.getElementById('ranks-title').style.display = 'none';
+    }
+    if (document.querySelector('.filter-cosmetics:not([style*="display: none"])')) {
+        document.getElementById('cosmetics-title').style.display = '';
+    } else {
+        document.getElementById('cosmetics-title').style.display = 'none';
+    }
+    if (document.querySelector('.filter-other:not([style*="display: none"])')) {
+        document.getElementById('other-title').style.display = '';
+    } else {
+        document.getElementById('other-title').style.display = 'none';
+    }
+    if (document.querySelectorAll('.product:not([style*="display: none"])').length === 0) {
+        document.getElementById('filter-nothing').style.display = '';
+    } else {
+        document.getElementById('filter-nothing').style.display = 'none';
+    }
+});
+// Update Limited Time Offers
+function updateLimitedOffers() {
+    const now = new Date();
+    const offer1End = new Date("2026-07-31T23:59:59");
+    const offer2End = new Date("2026-08-15T23:59:59");
+    const offer1El = document.getElementById("limited-1");
+    const offer2El = document.getElementById("limited-2");
+    offer1El.innerHTML = offer1End-now > 0 ? `Ends in ${Math.floor((offer1End - now) / (1000 * 60 * 60 * 24))}d` : "Expired";
+    offer2El.innerHTML = offer2End-now > 0 ? `Ends in ${Math.floor((offer2End - now) / (1000 * 60 * 60 * 24))}d` : "Expired";
+}
+updateLimitedOffers();
+setInterval(updateLimitedOffers, 1000);
